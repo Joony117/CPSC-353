@@ -3,7 +3,7 @@ from socket import *
 import sys # In order to terminate the program
 serverSocket = socket(AF_INET, SOCK_STREAM)
 
-serverSocket.bind(('localhost',80))
+serverSocket.bind(('localhost', 6789))
 serverSocket.listen(5)
 
 while True:
