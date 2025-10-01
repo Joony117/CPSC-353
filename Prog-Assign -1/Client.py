@@ -12,7 +12,7 @@ except socket.gaierror:
     print("Failed to resolve host name")
     sys.exit()
 
-clientSocket.connect((server,80))
+clientSocket.connect((server,6789))
 request = "GET /"+FILENAME+" HTTP/1.1\r\nHost: localhost\r\n\r\n"
 clientSocket.send(request.encode())
 responce = clientSocket.recv(1024).decode()
