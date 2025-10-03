@@ -17,9 +17,9 @@ for sequence in range(1,11):
     try:
         startTime = time.time()
         #randomize bytes we;re sending
-        sentPing = f"{random.randint(69,420)}"
+        message = f"Ping {sequence} {startTime}"
         #send UDP ping to our server
-        clientSocket.sendto(sentPing.encode(), server)
+        clientSocket.sendto(message.encode(), server)
         
         #wait for reply
         message, address = clientSocket.recvfrom(1024)
@@ -29,6 +29,6 @@ for sequence in range(1,11):
         
         print(f"Reply from our server: {address[0]} ,port #: {address[1]} ,Ping #: {sequence}, {message.decode()}, RTT = {rtt:.3f}s")
     except socket.timeout:
-        print("timed out")
+        print("Request timed out")
         
 clientSocket.close()
